@@ -1,11 +1,15 @@
-﻿global using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿global using Microsoft.EntityFrameworkCore;
+global using AutoMapper;
+global using Company.Data.Contexts;
+global using Company.Data.Entities;
+global using Company.Data.Interfaces;
+//global using Company.Data.Services;
+//global using Company.Common.DTOs;
+//global using Company.API.Extensions;
 
-namespace Company.Data;
-
-internal class usings
+namespace Company.Data
 {
+    internal class usings
+    {
+    }
 }
