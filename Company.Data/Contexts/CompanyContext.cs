@@ -11,6 +11,11 @@ namespace Company.Data.Contexts;
 
 public class CompanyContext : DbContext
 {
+    public DbSet<CompanyName> CompanyNames => Set<CompanyName>();
+    public DbSet<Department> Departments => Set<Department>();
+    public DbSet<Employee> Employees => Set<Employee>();
+    public DbSet<LinkPosition> LinkPositions => Set<LinkPosition>();
+    public DbSet<Position> Positions => Set<Position>();
     public CompanyContext(DbContextOptions<CompanyContext> options)
 : base(options)
     {
