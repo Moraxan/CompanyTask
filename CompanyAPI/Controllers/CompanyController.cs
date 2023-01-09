@@ -12,7 +12,7 @@ namespace CompanyAPI.Controllers
         {
             _db = db;
         }
-        [HttpGet("filter")]
+        [HttpGet("{filter}")]
 
         public async Task<IResult> Get(string filter)
 
