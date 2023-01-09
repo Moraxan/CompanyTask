@@ -9,7 +9,7 @@ namespace Company.Data.Entities;
 
 public class LinkPosition : IReferenceEntity
 {
-    public int PositionID { get; set; }
-    public int EmployeeID { get; set; } 
+    public int PositionId { get; set; }
+    public int EmployeeId { get; set; } 
 
 }

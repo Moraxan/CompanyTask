@@ -10,10 +10,10 @@ namespace Company.Data.Entities;
 
 public class Department : IEntity
 {
-    public int id { get; set; }
+    public int Id { get; set; }
     [MaxLength(50), Required]
     public string DepartmentName { get; set; }
     [MaxLength(50), Required]
-    public int CompanyID { get; set; }
+    public int CompanyId { get; set; }
 
 }

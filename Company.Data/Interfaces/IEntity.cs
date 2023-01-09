@@ -8,5 +8,5 @@ namespace Company.Data.Interfaces;
 
 public interface IEntity
 {
-    public int id { get; set; } 
+    public int Id { get; set; } 
 }

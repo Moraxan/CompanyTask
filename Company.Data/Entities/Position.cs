@@ -11,7 +11,7 @@ namespace Company.Data.Entities;
 
 public class Position : IEntity
 {
-    public int id { get; set; }
+    public int Id { get; set; }
     [MaxLength(50), Required]
 
     public string PositionName { get; set; }
