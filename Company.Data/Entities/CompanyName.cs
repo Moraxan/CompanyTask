@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Company.Data.Entities;
 
-public class CompanyName : IEntity
+public class CompanyName  : IEntity
 {
     public int Id { get; set; }
     [MaxLength(50),Required]
