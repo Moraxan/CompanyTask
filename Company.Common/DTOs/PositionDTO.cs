@@ -15,6 +15,6 @@ namespace Company.Common.DTOs
         public string PositionName { get; set; }
         public int PositionID { get; set; }
 
-        public virtual ICollection<Employee>? Employees { get; set; }
+       
     }
 }

@@ -58,21 +58,33 @@ namespace CompanyAPI.Controllers
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 return Results.BadRequest($"Couldn't update the {typeof(CompanyName).Name}entity.\n{ex}.");
 
             }
-            //return Results.BadRequest();
+            return Results.BadRequest();
             
 
         }
 
         // DELETE api/<CompanysController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IResult> Delete(int id)
         {
+            try
+            {
+                if (!await _db.DeleteAsync<CompanyName>(id)) return Results.NotFound();
+                if (await _db.SaveChangesAsync()) return Results.NoContent();
+            }
+            catch (Exception ex)
+            {
+                return Results.BadRequest($"Couldn't delete the {typeof(CompanyName).Name}entity.\n{ ex}.");
+
+                throw;
+            }
+            return Results.BadRequest();
         }
     }
 }

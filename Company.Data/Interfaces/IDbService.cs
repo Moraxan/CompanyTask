@@ -10,6 +10,7 @@ namespace Company.Data.Interfaces
     {
         Task<bool> AnyAsync<TEntity>(Expression<Func<TEntity, bool>> expression)
         where TEntity : class, IEntity;
+
         Task<List<TDto>> GetAsync<TEntity, TDto>()
             where TEntity : class, IEntity
             where TDto : class;
@@ -29,7 +30,8 @@ namespace Company.Data.Interfaces
             where TEntity : class, IEntity
             where TDto : class;
 
-
+        Task<bool> DeleteAsync<TEntity>(int id) 
+            where TEntity : class, IEntity;
 
 
     }

@@ -20,6 +20,6 @@ namespace Company.Common.DTOs
         public int Salary { get; set; }
         public bool UnionAttached { get; set; }
 
-        public virtual ICollection<Position>? Positions { get; set; }
+        
     }
 }
