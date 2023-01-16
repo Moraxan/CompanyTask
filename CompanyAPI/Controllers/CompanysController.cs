@@ -71,6 +71,26 @@ namespace CompanyAPI.Controllers
 
         // DELETE api/<CompanysController>/5
         [HttpDelete("{id}")]
+        //public async Task<IResult> Delete(int id)
+        //{
+        //    try
+        //    {
+        //        var company = await _db.DeleteAsync<CompanyName>(id);
+
+        //        if (company == null)
+        //        {
+        //            return (IResult)NotFound($"Company with Id = {id} not found");
+        //        }
+
+        //        return await Delete(id);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return (IResult)StatusCode(StatusCodes.Status500InternalServerError,
+        //            "Error deleting data");
+        //    }
+        //}
+
         public async Task<IResult> Delete(int id)
         {
             try
@@ -80,7 +100,7 @@ namespace CompanyAPI.Controllers
             }
             catch (Exception ex)
             {
-                return Results.BadRequest($"Couldn't delete the {typeof(CompanyName).Name}entity.\n{ ex}.");
+                return Results.BadRequest($"Couldn't delete the {typeof(CompanyName).Name}entity.\n{ex}.");
 
                 throw;
             }

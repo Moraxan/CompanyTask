@@ -60,30 +60,23 @@ namespace Company.Data.Services
         async Task<bool> IDbService.AnyAsync<TEntity>(Expression<Func<TEntity, bool>> expression)
         => await _db.Set<TEntity>().AnyAsync(expression);
 
-        async Task<bool> IDbService.DeleteAsync<TEntity>(int id)
-            
+        public async Task<bool> DeleteAsync<TEntity>(int id)
+            where TEntity : class, IEntity                          
         {
             try
             {
-                var entity = SingleAsync<TEntity>;
-                if (entity == null)
-                {
-                    return false;
-                }
+                var entity = await SingleAsync<TEntity>(e => e.Id.Equals(id));
+                if (entity is null) return false;
                 _db.Remove(entity);
-
             }
-
-
-            catch (Exception)
+            catch
             {
-
                 throw;
             }
-            throw new NotImplementedException();
+            return true;
         }
-    }
-    
+
+    }    
 }
     
 

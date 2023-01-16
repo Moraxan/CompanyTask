@@ -11,7 +11,7 @@ namespace Company.Common.DTOs
     {
         public int Id { get; set; }
         [MaxLength(50), Required]
-        public string DepartmentName { get; set; }
+        public string? DepartmentName { get; set; }
         [MaxLength(50), Required]
         public int CompanyId { get; set; }
     }

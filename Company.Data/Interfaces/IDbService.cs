@@ -32,7 +32,7 @@ namespace Company.Data.Interfaces
 
         Task<bool> DeleteAsync<TEntity>(int id) 
             where TEntity : class, IEntity;
-
+       
 
     }
 }
