@@ -43,7 +43,7 @@ void ConfigureAutomapper(IServiceCollection services)
         cfg.CreateMap<Department, DepartmentDTO>().ReverseMap();
         cfg.CreateMap<Employee, EmployeeDTO>().ReverseMap();
         cfg.CreateMap<Position, PositionDTO>().ReverseMap();
-        cfg.CreateMap<LinkPosition, LinkPositionDTO>().ReverseMap();
+        
     });
     var mapper = config.CreateMapper();
     services.AddSingleton(mapper);

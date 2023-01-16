@@ -1,4 +1,5 @@
 ﻿
+using Company.Data.Interfaces;
 using System.Linq.Expressions;
 using System.Reflection.Metadata.Ecma335;
 
@@ -21,7 +22,7 @@ namespace Company.Data.Services
         {
             var entities = await _db.Set<TEntity>().ToListAsync();
             return _mapper.Map<List<TDto>>(entities);
-           
+
         }
 
         private async Task<TEntity?> SingleAsync<TEntity>(
@@ -36,7 +37,38 @@ namespace Company.Data.Services
         {
             var entity = await SingleAsync(expression);
             return _mapper.Map<TDto>(entity);
-            
+
+        }
+
+        public async Task<TEntity> AddAsync<TEntity, TDto>(TDto dto)
+            where TEntity : class, IEntity
+            where TDto : class
+        {
+            var entity = _mapper.Map<TEntity>(dto);
+            await _db.Set<TEntity>().AddAsync(entity);
+            return entity;
+        }
+
+        public async Task<bool> SaveChangesAsync() =>
+            await _db.SaveChangesAsync() >= 0;
+
+        public string GetURI<TEntity>(TEntity entity)
+            where TEntity : class, IEntity
+
+            => $"/{typeof(TEntity)}s/{entity.Id}";
+
+        void IDbService.Update<TEntity, TDto>(int id, TDto dto)
+        {
+            var entity = _mapper.Map<TEntity>(dto);
+            _db.Set<TEntity>().Update(entity);
+        }
+
+        public async Task<bool> AnyAsync<TEntity>(Expression<Func<TEntity, bool>> expression)
+        {
+            await _db.Set<TEntity>().AnyAsync(expression);
+
         }
     }
 }
+    
+
