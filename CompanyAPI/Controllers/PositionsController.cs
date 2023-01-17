@@ -45,7 +45,7 @@ namespace CompanyAPI.Controllers
         //    return Results.BadRequest();
         //}
 
-        // PUT api/<CompanysController>/5
+        // PUT api/<CompanysController>/
         [HttpPut("{id}")]
         public async Task<IResult> Put(int id, [FromBody] PositionDTO dto)
         {
