@@ -26,13 +26,15 @@ namespace Company.Data.Interfaces
         string GetURI<TEntity>(TEntity entity)
             where TEntity : class, IEntity;
 
-        void Update<TEntity, TDto>(int id, TDto dto) 
+        void Update<TEntity, TDto>(int id, TDto dto)
             where TEntity : class, IEntity
             where TDto : class;
-
-        Task<bool> DeleteAsync<TEntity>(int id) 
+        
+        Task<bool> DeleteAsync<TEntity>(int id)
             where TEntity : class, IEntity;
+        Task<bool> Delete<TReferenceEntity, TDto>(TDto dto)
+         where TReferenceEntity : class
+         where TDto : class;
        
-
     }
 }

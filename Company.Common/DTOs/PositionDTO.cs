@@ -12,7 +12,7 @@ namespace Company.Common.DTOs
         public int Id { get; set; }
         [MaxLength(50), Required]
 
-        public string PositionName { get; set; }
+        public string? PositionName { get; set; }
         public int PositionID { get; set; }
 
        

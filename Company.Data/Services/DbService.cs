@@ -7,7 +7,6 @@ namespace Company.Data.Services
 {
     public class DbService : IDbService
     {
-
         private readonly CompanyContext _db;
         private readonly IMapper _mapper;
         public DbService(CompanyContext db, IMapper mapper)
@@ -61,7 +60,7 @@ namespace Company.Data.Services
         => await _db.Set<TEntity>().AnyAsync(expression);
 
         public async Task<bool> DeleteAsync<TEntity>(int id)
-            where TEntity : class, IEntity                          
+            where TEntity : class, IEntity
         {
             try
             {
@@ -76,7 +75,13 @@ namespace Company.Data.Services
             return true;
         }
 
-    }    
+        public Task<bool> Delete<TReferenceEntity, TDto>(TDto dto)
+            where TReferenceEntity : class
+            where TDto : class
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
     
 
